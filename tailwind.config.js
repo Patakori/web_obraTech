@@ -11,9 +11,7 @@ module.exports = {
         'inter': "var(--inter-font)",
       },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "login-desktop": "url('/bgHomeBig.jpg')",
       },
       colors:{
         'erro-50': '#FAA2A2',
