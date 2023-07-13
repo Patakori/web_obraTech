@@ -34,7 +34,44 @@ module.exports = {
         'primary-150': '#E8ECF1',
 
 
-      }
+      },
+           
+      keyframes: {
+        openMenuUser: {
+          '0%': { opacity: 0 },
+          '25%': { opacity: 0.25 },
+          '50%': { opacity: 0.5 },
+          '75%': { opacity: 0.75 },
+          '100%': { opacity: 1 },
+        },
+        closeMenuUser: {
+          '0%': { opacity: 0, backgroundColor: '#4F6573'},
+          '50%': { opacity: 1,  backgroundColor: '#4F6573' },
+          '100%': { opacity: 0,  backgroundColor: '#4F6573' },
+        },
+        shimmer: {
+          '0%': {
+            transform: 'scale(1)',
+          },
+          '50%': {
+            transform: 'scale(0.8)',
+          },
+          '100%': {
+            transform: 'scale(1)',
+          },
+        },
+      },
+      animation: {
+        openMenuUser: 'closeMenuUser 3s linear',
+        closeMenuUser: 'closeMenuUser .3s linear',
+        openModalHome: 'openMenuUser .3s linear',
+        closeModalHome: 'closeMenuUser .3s linear',
+        openQuestions: 'openMenuUser .3s linear',
+        closeQuestions: 'closeMenuUser .3s linear',
+        openTopButton: 'openMenuUser .3s linear',
+        closeTopButton: 'closeMenuUser .5s linear',
+      },
+
     },
   },
   plugins: [],
