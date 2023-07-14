@@ -26,16 +26,17 @@
         "prettier"
     ],
     "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "printWidth": 100,
-          "singleQuote": true,
-          "singleAttributePerLine": true,
-          "semi": true,
-          "usePrettierrc": false
-        }
-      ],
+        "prettier/prettier": [
+          "error",
+          {
+            "printWidth": 100,
+            "singleQuote": true,
+            "singleAttributePerLine": true,
+            "semi": true,
+            "usePrettierrc": false
+          }
+        ],
+        "comma-dangle": ["error", "only-multiline"],
         "@typescript-eslint/no-floating-promises": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "no-unexpected-multiline": 0,

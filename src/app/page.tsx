@@ -20,9 +20,11 @@ export default function Home() {
           />
           <h1 className=" font-inter text-2xl font-normal text-quaternary-50">Bem vindo!</h1>
 
-          <Button.Root>
-            <Button.Icon icon={MoveDownLeft} />
-            <Button.Text text="Clique aqui" />
+          <Button.Root className="max-w-[20.3125rem] bg-secondary-150">
+            <Button.Text
+              className=" font-inter text-base font-bold text-black"
+              text="Login"
+            />
           </Button.Root>
         </div>
 
