@@ -5,5 +5,5 @@ import { Text } from './Text';
 export const Button = {
   Root,
   Icon,
-  Text,
+  Text
 };

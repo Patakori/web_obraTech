@@ -1,14 +1,21 @@
 {
     "env": {
         "browser": true,
-        "es2021": true,
-        "jest": true
+        "es2021": true
+    },
+    "settings": {
+      "react":{
+        "version": "detect"
+      }
     },
     "extends": [
-      "prettier",
-      "plugin:prettier/recommended",
-      "plugin:react/recommended",
-      "airbnb"
+        "prettier",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:react-hook-form/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -21,139 +28,32 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "eslint-plugin-import-helpers",
+        "react-hook-form",
         "react-hooks",
-        "prettier"
+        "eslint-plugin-import-helpers"
     ],
     "rules": {
-        "prettier/prettier": [
-          "error",
-          {
-            "printWidth": 100,
-            "singleQuote": true,
-            "singleAttributePerLine": true,
-            "semi": true,
-            "usePrettierrc": false
-          }
-        ],
-        "comma-dangle": ["error", "only-multiline"],
-        "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/no-unsafe-assignment": "off",
-        "no-unexpected-multiline": 0,
-        "max-len": "warn",
-        "camelcase": "off",
-        "import/no-unresolved": "error",
-        "@typescript-eslint/naming-convention": [
-          "error",
-          {
-            "selector": "interface",
-            "format": [
-              "PascalCase"
-            ]
-          }
-        ],
-        "react/prop-types": "off",
-        "no-unused-expressions": "off",
-        "space-before-function-paren": "off",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "class-methods-use-this": "off",
-        "import/prefer-default-export": "off",
-        "no-shadow": "off",
-        "no-console": "off",
-        "no-useless-constructor": "off",
-        "no-empty-function": "off",
-        "lines-between-class-members": "off",
-        "react/forbid-prop-types": 0,
-        "react/require-default-props": 0,
-        "react/no-unused-prop-types": 0,
-        "import/extensions": [
-          "error",
-          "ignorePackages",
-          {
-            "ts": "never",
-            "tsx": "never"
-          }
-        ],
-        "no-unused-vars": 0,
-        "@typescript-eslint/no-unused-vars": 0,
-        "import-helpers/order-imports": [
-          "warn",
-          {
-            "newlinesBetween": "always",
-            "groups": [
-              "module",
+      "react-hook-form/destructuring-formstate": "error",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/react-in-jsx-scope": "off",
+      "prettier/prettier": "error",
+      "import-helpers/order-imports": [
+        "warn",
+        { // example configuration
+          "newlinesBetween": "always",
+          "groups": [
+              ["/^react/", "/^next/", "/@next/", "/@react/"],
+              "/module/",
               "/^@shared/",
-              [
-                "parent",
-                "sibling",
-                "index"
-              ]
-            ],
-            "alphabetize": {
-              "order": "asc",
-              "ignoreCase": true
-            }
-          }
-        ],
-        "import/no-extraneous-dependencies": [
-          "error",
-          {
-            "devDependencies": [
-              "**/*.spec.js"
-            ]
-          }
-        ],
-        "react/jsx-filename-extension": [
-          1,
-          {
-            "extensions": [
-              ".jsx",
-              ".tsx"
-            ]
-          }
-        ],
-        "react/react-in-jsx-scope": "off",
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": [
-          "error"
-        ],
-        "jsx-a11y/label-has-associated-control": [
-          "error",
-          {
-            "required": {
-              "some": [
-                "nesting",
-                "id"
-              ]
-            }
-          }
-        ],
-        "jsx-a11y/label-has-for": [
-          "error",
-          {
-            "required": {
-              "some": [
-                "nesting",
-                "id"
-              ]
-            }
-          }
-        ],
-        "linebreak-style": [
-          "error",
-          "windows"
-        ],
-        "arrow-body-style": "off",
-        "prefer-arrow-callback": "off",
-        "template-curly-spacing": [
-          "error",
-          "never"
-        ]
-    },
-    "settings": {
-        "import/resolver": {
-          "typescript": {}
+              "/absolute/",
+              "/^components/",
+              "/^hooks/",
+              ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": true }
         }
-      }
+    ]
+    }
 }
+
