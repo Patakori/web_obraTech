@@ -8,5 +8,7 @@ interface RootProps {
 }
 
 export default function Root({ className, children }: RootProps) {
-  return <div className={twMerge('flex h-full w-full flex-col', className)}>{children}</div>;
+  return (
+    <div className={twMerge('flex h-full w-full flex-col relative', className)}>{children}</div>
+  );
 }

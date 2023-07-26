@@ -8,7 +8,7 @@ export function Error({ text, className }: ErrorProps) {
   return (
     <p
       className={twMerge(
-        ' pt-1 self-end font-bold text-[.625rem] font-inter text-erro-150',
+        ' pt-1 self-end font-bold text-[.625rem] h-[0.938rem] font-inter text-erro-150',
         className
       )}
     >

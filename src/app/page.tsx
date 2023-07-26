@@ -62,6 +62,12 @@ export default function Home() {
     });
 
   const { errors } = formState;
+  const { email, password } = getValues();
+  const emailValue = watch('email');
+
+  useEffect(() => {
+    console.log(emailValue);
+  }, [emailValue]);
 
   const onSubmit = (data: any) => {
     console.log('onSubmit', data);
@@ -83,21 +89,30 @@ export default function Home() {
           <h1 className=" font-inter text-2xl font-normal text-quaternary-50">Bem vindo!</h1>
 
           <InputField.Root className="max-w-[20.3125rem]">
-            {/* <InputField.Label text="E-mail" /> */}
             <InputField.InputData
+              id="emailForm"
               type="text"
-              placeholder="Digite aqui"
+              placeholder=" "
               register={register('email')}
               className="rounded-t-lg"
             />
+            <InputField.Label
+              htmlFor="emailForm"
+              text="E-mail"
+            />
           </InputField.Root>
           <InputField.Root className="max-w-[20.3125rem]">
-            {/* <InputField.Label text="Senha" /> */}
             <InputField.InputData
+              id="passwordForm"
               type="text"
-              placeholder="Digite aqui"
+              placeholder=" "
               register={register('password')}
               className=" mt-[-2px] rounded-b-lg"
+            />
+            <InputField.Label
+              htmlFor="emailForm"
+              text="Senha"
+              className=" "
             />
             <InputField.Error text={errors.email?.message || errors.password?.message} />
           </InputField.Root>

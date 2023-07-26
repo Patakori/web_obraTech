@@ -7,5 +7,12 @@ interface IconProps {
   className?: string;
 }
 export function Icon({ icon: Icon, className }: IconProps) {
-  return <Icon className={twMerge('text-xl', className)} />;
+  return (
+    <button
+      type="button"
+      className="flex w-auto h-auto justify-center items-center absolute"
+    >
+      <Icon className={twMerge('text-xl', className)} />
+    </button>
+  );
 }
