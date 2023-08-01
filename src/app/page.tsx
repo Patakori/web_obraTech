@@ -1,16 +1,15 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/Button';
-import ButtonDefault from '@/components/ButtonDefault';
 import { Card } from '@/components/Card';
 import { InputField } from '@/components/InputField';
-import { InputData } from '@/components/InputField/Input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { MoveDownLeft } from 'lucide-react';
+import { Eye } from 'lucide-react';
+import { EyeOff } from 'lucide-react';
 import { z } from 'zod';
 
 const StepProjectSchema = z.object({
@@ -55,6 +54,8 @@ const StepProjectSchema = z.object({
 export type SchemaStepProject = z.infer<typeof StepProjectSchema>;
 
 export default function Home() {
+  const [passwordView, setPasswordView] = useState<boolean>(false);
+
   const { register, handleSubmit, formState, control, getValues, trigger, watch } =
     useForm<SchemaStepProject>({
       resolver: zodResolver(StepProjectSchema),
@@ -62,12 +63,6 @@ export default function Home() {
     });
 
   const { errors } = formState;
-  const { email, password } = getValues();
-  const emailValue = watch('email');
-
-  useEffect(() => {
-    console.log(emailValue);
-  }, [emailValue]);
 
   const onSubmit = (data: any) => {
     console.log('onSubmit', data);
@@ -86,7 +81,10 @@ export default function Home() {
             src="/logo.svg"
             alt="Construção Civil"
           />
-          <h1 className=" font-inter text-2xl font-normal text-quaternary-50">Bem vindo!</h1>
+
+          <h1 className=" font-inter text-2xl font-normal text-quaternary-50 pt-5 pb-8">
+            Bem vindo!
+          </h1>
 
           <InputField.Root className="max-w-[20.3125rem]">
             <InputField.InputData
@@ -101,32 +99,44 @@ export default function Home() {
               text="E-mail"
             />
           </InputField.Root>
-          <InputField.Root className="max-w-[20.3125rem]">
+
+          <InputField.Root className="max-w-[20.3125rem] relative">
             <InputField.InputData
               id="passwordForm"
-              type="text"
+              type={!passwordView ? 'password' : 'text'}
               placeholder=" "
               register={register('password')}
               className=" mt-[-2px] rounded-b-lg"
             />
             <InputField.Label
-              htmlFor="emailForm"
+              htmlFor="passwordForm"
               text="Senha"
               className=" "
             />
             <InputField.Error text={errors.email?.message || errors.password?.message} />
+            <Button.Root
+              type="button"
+              className="border-none w-auto absolute right-0 translate-y-1 z-10"
+              onClick={() => setPasswordView((prevState) => !prevState)}
+            >
+              <Button.Icon icon={!passwordView ? EyeOff : Eye} />
+            </Button.Root>
           </InputField.Root>
 
           <Button.Root
             type="submit"
-            className="max-w-[20.3125rem] bg-secondary-150"
+            className="max-w-[20.3125rem] bg-secondary-150 my-8"
           >
             <Button.Text
               className="text-base text-black"
               text="Login"
             />
           </Button.Root>
-          <Button.Root className="max-w-[8.75rem] bg-white border-2 border-secondary-150">
+
+          <Button.Root
+            type="button"
+            className="max-w-[8.75rem] bg-white border-2 border-secondary-150"
+          >
             <Button.Text
               className=" text-sm text-quaternary-50"
               text="Cadastrar-se"

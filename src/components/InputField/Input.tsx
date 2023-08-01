@@ -1,4 +1,9 @@
+'use client';
+
+import { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
+
+import { Button } from '../Button';
 
 import { Eye } from 'lucide-react';
 import { EyeOff } from 'lucide-react';
@@ -21,7 +26,6 @@ export function InputData({ type, placeholder, className, register, id }: LabelP
         'border-2 border-secondary-150 h-auto pt-6 pb-2 w-full font-inter font-bold text-xs px-3 focus:outline-none focus:z-10 focus:border-tertiary-50 peer',
         className
       )}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...register}
     />
   );

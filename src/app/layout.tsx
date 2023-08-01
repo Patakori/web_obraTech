@@ -4,11 +4,11 @@ import { Inter } from 'next/font/google';
 const inter = Inter({
   variable: '--inter-font',
   weight: ['100', '300', '400', '500', '700', '900'],
-  subsets: ['latin'],
+  subsets: ['latin']
 });
 
 export default function RootLayout({
-  children,
+  children
 }: {
   // eslint-disable-next-line no-undef
   children: React.ReactNode;

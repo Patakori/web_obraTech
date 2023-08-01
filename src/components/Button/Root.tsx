@@ -1,3 +1,5 @@
+'use client';
+
 import { ReactNode } from 'react';
 
 import { twMerge } from 'tailwind-merge';
@@ -6,7 +8,7 @@ interface RootProps {
   className?: string;
   children: ReactNode;
   type?: 'button' | 'submit' | 'reset' | undefined;
-  onClick?: void;
+  onClick?: () => void;
 }
 
 export default function Root({ className, children, type, onClick }: RootProps) {
@@ -14,10 +16,10 @@ export default function Root({ className, children, type, onClick }: RootProps) 
     <button
       type={type}
       className={twMerge(
-        'active:duration-[50ms], my-4 flex w-full items-center justify-center rounded-full border px-4 py-2 active:transform active:brightness-90 ',
+        'active:duration-[50ms] flex w-full items-center justify-center rounded-full border px-4 py-2 active:transform active:brightness-90 ',
         className
       )}
-      onClick={() => onClick}
+      onClick={onClick}
     >
       {children}
     </button>
